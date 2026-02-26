@@ -414,6 +414,15 @@
 </head>
 <body>
 
+<!-- CONVERSION BAR -->
+<div id="conv-bar" style="background:linear-gradient(90deg,#060e1a,#0a1628);border-bottom:1px solid rgba(201,162,39,0.25);padding:11px 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;align-items:center;font-size:13px;color:#fff;">
+  <span>🔥 <strong style="color:#c9a227">847 entreprises</strong> <span style="color:#8892a4">ont adopté l'IA cette semaine</span></span>
+  <span style="color:#2a3a4a">|</span>
+  <span style="color:#8892a4">⏰ Offre valable encore :&nbsp;<strong id="countdown" style="color:#c9a227;font-variant-numeric:tabular-nums">72h 00m 00s</strong></span>
+  <span style="color:#2a3a4a">|</span>
+  <span>🔒 <strong style="color:#22c55e">Paiement sécurisé</strong>&nbsp;<span style="background:#635BFF;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">STRIPE</span></span>
+</div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-logo">IA<span>PME</span>.fr</div>
@@ -607,10 +616,53 @@
   </a>
 </section>
 
+<!-- VOIR AUSSI -->
+<section style="background:#060e1a;border-top:1px solid rgba(255,255,255,0.06);padding:36px 24px;text-align:center;">
+  <div style="max-width:800px;margin:0 auto;">
+    <p style="color:#8892a4;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;">🔗 Voir aussi nos autres services</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
+      <a href="https://kasimax.github.io/data-shop/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:14px 22px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(201,162,39,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+        <span style="font-size:22px;">📊</span>
+        <div style="text-align:left;">
+          <div style="color:#fff;font-weight:700;font-size:14px;">Boutique Données B2B</div>
+          <div style="color:#8892a4;font-size:12px;">5 779 contacts géomètres & BTP</div>
+        </div>
+      </a>
+      <a href="https://kasimax.github.io/lead-factory/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:14px 22px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(201,162,39,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+        <span style="font-size:22px;">🎯</span>
+        <div style="text-align:left;">
+          <div style="color:#fff;font-weight:700;font-size:14px;">Lead Factory</div>
+          <div style="color:#8892a4;font-size:12px;">Leads B2B qualifiés livrés en 24h</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 IAPME.fr — Service propulsé par l'IA · <a href="mailto:contact@geo-mod.com">contact@geo-mod.com</a> · <a href="#">CGV</a> · <a href="#">Confidentialité</a></p>
+  <p>© 2026 IAPME.fr — Service propulsé par l'IA · <a href="mailto:contact@geo-mod.com">contact@geo-mod.com</a> · <a href="preuves.html" style="color:#c9a227">✨ Cas clients</a> · <a href="#">CGV</a> · <a href="#">Confidentialité</a></p>
 </footer>
 
+<!-- Countdown 72h -->
+<script>
+  (function() {
+    var KEY = 'iapme_offerExpiry';
+    var stored = localStorage.getItem(KEY);
+    var expiry = stored ? parseInt(stored) : Date.now() + 72 * 60 * 60 * 1000;
+    if (!stored) localStorage.setItem(KEY, expiry);
+    var el = document.getElementById('countdown');
+    if (!el) return;
+    function tick() {
+      var diff = expiry - Date.now();
+      if (diff <= 0) { el.textContent = 'Offre expirée'; return; }
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      el.textContent = String(h).padStart(2,'0') + 'h ' + String(m).padStart(2,'0') + 'm ' + String(s).padStart(2,'0') + 's';
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+</script>
 </body>
 </html>

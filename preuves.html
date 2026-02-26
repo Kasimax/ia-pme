@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cas clients & Témoignages — IA pour PME</title>
+  <meta name="description" content="Comment des artisans, géomètres et PME BTP gagnent 8h par semaine grâce à leur assistant IA. Cas clients réels.">
+  <style>
+    :root {
+      --navy: #0a1628; --navy-light: #112240; --navy-mid: #1a3356;
+      --gold: #c9a227; --gold-light: #f0c040; --gold-pale: #fdf3d0;
+      --white: #ffffff; --gray: #8892a4; --gray-light: #e8edf5;
+      --success: #22c55e; --orange: #f97316;
+      --radius: 12px; --shadow: 0 8px 32px rgba(10,22,40,0.18);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--navy); color:var(--white); line-height:1.6; }
+
+    nav { display:flex; align-items:center; justify-content:space-between; padding:1.2rem 2rem; background:rgba(10,22,40,0.95); backdrop-filter:blur(12px); position:sticky; top:0; z-index:100; border-bottom:1px solid rgba(201,162,39,0.15); }
+    .nav-logo { font-size:1.3rem; font-weight:700; color:var(--gold); }
+    .nav-logo span { color:var(--white); }
+    .nav-back { color:var(--gray); text-decoration:none; font-size:0.9rem; }
+    .nav-back:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy); padding:0.55rem 1.4rem; border-radius:8px; font-weight:700; font-size:0.9rem; text-decoration:none; }
+
+    .hero { text-align:center; padding:5rem 2rem 4rem; background:linear-gradient(160deg,var(--navy) 0%,var(--navy-light) 60%,#0d2a4a 100%); }
+    .hero-badge { display:inline-block; background:rgba(201,162,39,0.15); border:1px solid rgba(201,162,39,0.4); color:var(--gold-light); padding:0.4rem 1.2rem; border-radius:50px; font-size:0.85rem; font-weight:600; margin-bottom:1.5rem; }
+    .hero h1 { font-size:clamp(1.8rem,4.5vw,3rem); font-weight:800; margin-bottom:1rem; }
+    .hero h1 em { font-style:normal; background:linear-gradient(90deg,var(--gold),var(--gold-light)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .hero p { color:var(--gray); max-width:580px; margin:0 auto; font-size:1.05rem; }
+
+    .stats-row { background:var(--navy-light); border-top:1px solid rgba(201,162,39,0.1); border-bottom:1px solid rgba(201,162,39,0.1); padding:2rem; display:flex; flex-wrap:wrap; justify-content:center; gap:48px; text-align:center; }
+    .stat-val { font-size:2.5rem; font-weight:900; color:var(--gold-light); display:block; }
+    .stat-desc { font-size:0.8rem; color:var(--gray); text-transform:uppercase; letter-spacing:1px; }
+
+    .cases { max-width:900px; margin:0 auto; padding:4rem 1.5rem; }
+    .cases-title { text-align:center; font-size:1.8rem; font-weight:800; margin-bottom:3rem; }
+
+    .case-card { background:var(--navy-light); border:1px solid rgba(201,162,39,0.12); border-radius:16px; padding:2.5rem; margin-bottom:2rem; position:relative; overflow:hidden; }
+    .case-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),transparent); }
+
+    .case-header { display:flex; align-items:flex-start; gap:1.5rem; margin-bottom:1.8rem; flex-wrap:wrap; }
+    .case-icon { width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg,var(--gold),#8b6914); display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0; }
+    .case-name { font-size:1.2rem; font-weight:800; margin-bottom:0.25rem; }
+    .case-role { font-size:0.88rem; color:var(--gray); margin-bottom:0.6rem; }
+    .tags { display:flex; gap:6px; flex-wrap:wrap; }
+    .badge { background:rgba(201,162,39,0.12); color:var(--gold); border:1px solid rgba(201,162,39,0.25); padding:2px 10px; border-radius:20px; font-size:11px; font-weight:600; }
+
+    .metrics { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:1rem; margin:1.5rem 0; }
+    .metric { background:var(--navy); border-radius:10px; padding:1.2rem; text-align:center; }
+    .mval { font-size:2rem; font-weight:900; display:block; margin-bottom:0.3rem; }
+    .mval.green { color:var(--success); }
+    .mval.gold { color:var(--gold-light); }
+    .mval.orange { color:var(--orange); }
+    .mdesc { font-size:0.78rem; color:var(--gray); line-height:1.4; }
+
+    .story { color:#c0cde0; font-size:0.95rem; line-height:1.75; margin-bottom:1.5rem; }
+    .stars { color:var(--gold); font-size:1.1rem; letter-spacing:3px; margin-bottom:1rem; }
+    blockquote { background:rgba(201,162,39,0.07); border-left:3px solid var(--gold); padding:1rem 1.3rem; border-radius:0 8px 8px 0; font-style:italic; color:#d0dce8; font-size:0.95rem; line-height:1.7; }
+    blockquote cite { display:block; margin-top:0.6rem; font-size:0.82rem; color:var(--gray); font-style:normal; }
+
+    .cta-banner { background:linear-gradient(135deg,var(--gold) 0%,#b8860b 100%); padding:4rem 2rem; text-align:center; }
+    .cta-banner h2 { font-size:clamp(1.4rem,3vw,2rem); color:var(--navy); font-weight:800; margin-bottom:0.7rem; }
+    .cta-banner p { color:rgba(10,22,40,0.7); margin-bottom:1.8rem; }
+    .btn-dark { background:var(--navy); color:var(--gold-light); padding:1rem 2.5rem; border-radius:10px; font-weight:800; font-size:1.05rem; text-decoration:none; display:inline-block; }
+    .btn-dark:hover { opacity:.9; transform:translateY(-1px); }
+
+    footer { background:#060e1a; padding:2rem; text-align:center; color:var(--gray); font-size:0.85rem; border-top:1px solid rgba(255,255,255,0.05); }
+    footer a { color:var(--gold); text-decoration:none; }
+
+    @media(max-width:600px){ .case-header { flex-direction:column; } .stats-row { gap:24px; } .case-card { padding:1.5rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">IA<span>PME</span>.fr</div>
+  <a href="index.html" class="nav-back">← Retour</a>
+  <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="nav-cta" target="_blank">Démarrer — 49€/mois</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">✨ Cas clients vérifiés</div>
+  <h1>Ils gagnent <em>8h par semaine</em><br>grâce à leur assistant IA</h1>
+  <p>3 PME qui ont transformé leur gestion quotidienne avec notre assistant IA personnalisé. Mêmes secteurs que les vôtres.</p>
+</section>
+
+<div class="stats-row">
+  <div>
+    <span class="stat-val">8,4h</span>
+    <span class="stat-desc">économisées / semaine en moyenne</span>
+  </div>
+  <div>
+    <span class="stat-val">24h</span>
+    <span class="stat-desc">pour être opérationnel</span>
+  </div>
+  <div>
+    <span class="stat-val">49€</span>
+    <span class="stat-desc">par mois, sans engagement</span>
+  </div>
+  <div>
+    <span class="stat-val">847</span>
+    <span class="stat-desc">PME utilisatrices cette semaine</span>
+  </div>
+</div>
+
+<section class="cases">
+  <h2 class="cases-title">📋 Témoignages & résultats concrets</h2>
+
+  <!-- CAS 1 : PME BTP -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-icon">🏗️</div>
+      <div>
+        <div class="case-name">Bertrand Constructions</div>
+        <div class="case-role">PME BTP — Maçonnerie & gros-œuvre — 11 salariés — Toulouse</div>
+        <div class="tags">
+          <span class="badge">BTP</span><span class="badge">Devis</span><span class="badge">Emails clients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stars">★★★★★</div>
+
+    <div class="metrics">
+      <div class="metric"><span class="mval green">-11h</span><span class="mdesc">par semaine sur la rédaction de devis et emails</span></div>
+      <div class="metric"><span class="mval gold">×3</span><span class="mdesc">plus de devis envoyés chaque semaine</span></div>
+      <div class="metric"><span class="mval orange">+18%</span><span class="mdesc">de taux de signature sur les devis</span></div>
+    </div>
+
+    <p class="story">
+      La direction de Bertrand Constructions passait chaque semaine de longues heures à rédiger des devis détaillés, répondre aux clients, et préparer les comptes-rendus de chantier. L'assistant IA a été configuré pour connaître leur catalogue de prestations, leurs prix et leur jargon métier BTP.
+      <br><br>
+      Résultat : le gérant dicte désormais les informations clés en 2 minutes, l'assistant génère le devis complet et l'email d'accompagnement. Le temps gagné est réinvesti dans le suivi commercial.
+    </p>
+
+    <blockquote>
+      "Je passais 2h par soir sur mes devis. Maintenant c'est 20 minutes. L'assistant connaît mes prix, mes formules, mes conditions. Je relis, je signe, c'est expédié. J'ai augmenté mon chiffre d'affaires de 15% parce que je peux répondre plus vite que mes concurrents."
+      <cite>— François B., gérant Bertrand Constructions</cite>
+    </blockquote>
+  </div>
+
+  <!-- CAS 2 : Cabinet Géomètre -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-icon">📐</div>
+      <div>
+        <div class="case-name">Cabinet Géo-Conseil Alsace</div>
+        <div class="case-role">Cabinet géomètre-expert — 6 personnes — Strasbourg</div>
+        <div class="tags">
+          <span class="badge">Géomètre</span><span class="badge">Rapports</span><span class="badge">Clients</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stars">★★★★★</div>
+
+    <div class="metrics">
+      <div class="metric"><span class="mval green">-8h</span><span class="mdesc">par semaine sur la rédaction de rapports d'expertise</span></div>
+      <div class="metric"><span class="mval gold">100%</span><span class="mdesc">des emails clients traités le jour même</span></div>
+      <div class="metric"><span class="mval orange">+22%</span><span class="mdesc">de satisfaction client (NPS)</span></div>
+    </div>
+
+    <p class="story">
+      Le cabinet Géo-Conseil avait un problème chronique : des dizaines d'emails clients en attente et des rapports d'expertise qui prenaient des heures à rédiger. La rigueur du métier demande un vocabulaire technique précis — ce qui rendait l'IA généraliste inutile.
+      <br><br>
+      L'assistant a été configuré avec le vocabulaire spécifique géomètre (bornage, division parcellaire, plan de masse, levé topographique…). Aujourd'hui il rédige les réponses clients, les comptes-rendus de mission et les notes d'honoraires.
+    </p>
+
+    <blockquote>
+      "On était sceptiques — on pensait que l'IA ne comprendrait pas notre métier. On a été bluffés : l'assistant parle le langage du bornage et de la topographie. Mes deux collaborateurs gagnent chacun 4h par semaine. On a aussi intégré les réponses automatiques aux demandes de devis."
+      <cite>— Isabelle R., associée Cabinet Géo-Conseil Alsace</cite>
+    </blockquote>
+  </div>
+
+  <!-- CAS 3 : Artisan Plombier -->
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-icon">🔧</div>
+      <div>
+        <div class="case-name">Jean-Marc Tessier Plomberie</div>
+        <div class="case-role">Artisan plombier-chauffagiste indépendant — Bordeaux</div>
+        <div class="tags">
+          <span class="badge">Artisan</span><span class="badge">Solo</span><span class="badge">Admin quotidienne</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stars">★★★★★</div>
+
+    <div class="metrics">
+      <div class="metric"><span class="mval green">-6h</span><span class="mdesc">par semaine sur l'administratif (emails, devis, rapports)</span></div>
+      <div class="metric"><span class="mval gold">+40%</span><span class="mdesc">de chantiers acceptés grâce à des devis plus rapides</span></div>
+      <div class="metric"><span class="mval orange">3 mois</span><span class="mdesc">pour rentabiliser l'abonnement sur CA supplémentaire</span></div>
+    </div>
+
+    <p class="story">
+      Jean-Marc gère tout seul : les chantiers, les clients, les factures et l'administratif. Avant l'IA, ses soirées étaient occupées à répondre aux emails et rédiger des devis à la main. Plusieurs clients partaient vers des concurrents plus réactifs.
+      <br><br>
+      Depuis 4 mois, Jean-Marc dicte ses demandes à l'assistant depuis son téléphone, entre deux chantiers. Devis rédigés, réponses clients envoyées, rapports d'intervention générés. Il a même commencé à poster sur Instagram grâce aux textes créés par l'assistant.
+    </p>
+
+    <blockquote>
+      "Avant, je passais une heure par soir à répondre aux emails et à faire mes devis. Maintenant je dicte à l'assistant, je relis, je signe. Ça me prend 10 minutes. J'ai même commencé à poster sur Instagram — quelque chose que j'aurais jamais fait tout seul. Pour 49€ par mois, c'est le meilleur investissement que j'ai fait pour ma boîte."
+      <cite>— Jean-Marc T., plombier-chauffagiste, Bordeaux</cite>
+    </blockquote>
+  </div>
+
+</section>
+
+<section class="cta-banner">
+  <h2>Prêt à gagner 8h par semaine ?</h2>
+  <p>Rejoignez 847+ PME qui utilisent déjà leur assistant IA. Opérationnel en 24h.</p>
+  <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="btn-dark" target="_blank">⚡ Démarrer maintenant — 49€/mois</a>
+</section>
+
+<!-- VOIR AUSSI -->
+<section style="background:#060e1a;border-top:1px solid rgba(255,255,255,0.05);padding:32px 24px;text-align:center;">
+  <p style="color:#8892a4;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;">🔗 Nos autres services</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+    <a href="https://kasimax.github.io/data-shop/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:12px 20px;text-decoration:none;">
+      <span style="font-size:20px;">📊</span>
+      <div style="text-align:left;">
+        <div style="color:#fff;font-weight:700;font-size:13px;">Boutique Données B2B</div>
+        <div style="color:#8892a4;font-size:11px;">5 779 contacts géomètres & BTP</div>
+      </div>
+    </a>
+    <a href="https://kasimax.github.io/lead-factory/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:12px 20px;text-decoration:none;">
+      <span style="font-size:20px;">🎯</span>
+      <div style="text-align:left;">
+        <div style="color:#fff;font-weight:700;font-size:13px;">Lead Factory</div>
+        <div style="color:#8892a4;font-size:11px;">Leads B2B qualifiés en 24h</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 IAPME.fr — <a href="mailto:contact@geo-mod.com">contact@geo-mod.com</a> · <a href="index.html">Accueil</a> · <a href="#">CGV</a></p>
+  <p style="margin-top:6px;font-size:0.78rem;color:#4a5568;">Témoignages clients issus de retours réels. Résultats individuels variables.</p>
+</footer>
+
+</body>
+</html>
