@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Votre Assistant IA — IAPME</title>
+  <style>
+    :root {
+      --navy: #0a1628;
+      --navy-light: #112240;
+      --navy-mid: #1a3356;
+      --gold: #c9a227;
+      --gold-light: #f0c040;
+      --white: #ffffff;
+      --gray: #8892a4;
+      --user-bg: #1a3a6b;
+      --bot-bg: #112240;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--navy-light);
+      border-bottom: 1px solid rgba(201,162,39,0.2);
+      padding: 0.9rem 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      flex-shrink: 0;
+    }
+    .header-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #b8860b);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .header-info { flex: 1; }
+    .header-name { font-weight: 700; font-size: 0.95rem; }
+    .header-status { display:flex; align-items:center; gap:0.4rem; font-size:0.78rem; color: var(--gray); }
+    .status-dot { width:7px; height:7px; border-radius:50%; background:#22c55e; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .header-model { font-size:0.75rem; color: rgba(201,162,39,0.7); background: rgba(201,162,39,0.1); padding:0.2rem 0.6rem; border-radius:50px; }
+
+    /* CHAT AREA */
+    .chat-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      scroll-behavior: smooth;
+    }
+    .chat-area::-webkit-scrollbar { width: 4px; }
+    .chat-area::-webkit-scrollbar-track { background: transparent; }
+    .chat-area::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius:4px; }
+
+    /* MESSAGES */
+    .msg-wrap {
+      display: flex;
+      gap: 0.6rem;
+      max-width: 85%;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
+    .msg-wrap.user { align-self: flex-end; flex-direction: row-reverse; }
+    .msg-wrap.bot { align-self: flex-start; }
+    .msg-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; flex-shrink: 0; align-self: flex-end;
+    }
+    .msg-wrap.bot .msg-avatar { background: linear-gradient(135deg, var(--gold), #b8860b); }
+    .msg-wrap.user .msg-avatar { background: var(--user-bg); border: 1px solid rgba(255,255,255,0.15); }
+    .msg-bubble {
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 0.93rem;
+      line-height: 1.65;
+      word-break: break-word;
+    }
+    .msg-wrap.bot .msg-bubble {
+      background: var(--bot-bg);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+      color: #d0dce8;
+    }
+    .msg-wrap.user .msg-bubble {
+      background: var(--user-bg);
+      border: 1px solid rgba(26,58,107,0.8);
+      border-bottom-right-radius: 4px;
+    }
+    .msg-time { font-size: 0.7rem; color: var(--gray); margin-top: 0.3rem; text-align: right; }
+    .msg-wrap.bot .msg-time { text-align: left; }
+
+    /* TYPING INDICATOR */
+    .typing-indicator {
+      display: flex; gap: 5px; align-items: center;
+      padding: 0.9rem 1rem;
+    }
+    .typing-dot {
+      width:7px; height:7px; border-radius:50%;
+      background: var(--gold); opacity:0.4;
+      animation: typingPulse 1.2s infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typingPulse { 0%,60%,100%{opacity:0.4;transform:scale(1)} 30%{opacity:1;transform:scale(1.3)} }
+
+    /* SUGGESTIONS */
+    .suggestions {
+      padding: 0 1rem 0.5rem;
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .suggestion-btn {
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.25);
+      color: var(--gold-light); font-size: 0.8rem;
+      padding: 0.35rem 0.8rem; border-radius: 50px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .suggestion-btn:hover { background: rgba(201,162,39,0.2); }
+
+    /* INPUT AREA */
+    .input-area {
+      padding: 0.8rem 1rem 1rem;
+      background: var(--navy-light);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .input-row {
+      display: flex; gap: 0.6rem; align-items: flex-end;
+      background: var(--navy);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 0.5rem 0.6rem 0.5rem 1rem;
+      transition: border-color 0.2s;
+    }
+    .input-row:focus-within { border-color: rgba(201,162,39,0.5); }
+    textarea {
+      flex: 1; background: transparent; border: none; outline: none;
+      color: var(--white); font-family: inherit; font-size: 0.93rem;
+      resize: none; line-height: 1.5; max-height: 120px;
+      padding: 0.3rem 0;
+    }
+    textarea::placeholder { color: var(--gray); }
+    .send-btn {
+      width: 36px; height: 36px; border-radius: 8px; border: none;
+      background: linear-gradient(135deg, var(--gold), #e8b730);
+      color: var(--navy); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+    .send-btn:hover:not(:disabled) { transform: scale(1.05); }
+    .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .input-footer {
+      text-align: center; font-size: 0.72rem; color: var(--gray);
+      margin-top: 0.5rem;
+    }
+
+    /* WELCOME SCREEN */
+    .welcome {
+      text-align: center; padding: 2rem 1rem;
+      max-width: 420px; margin: auto;
+    }
+    .welcome-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .welcome h2 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .welcome p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .welcome-examples { text-align: left; }
+    .example-item {
+      background: var(--navy-light); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.7rem 0.9rem;
+      margin-bottom: 0.5rem; font-size: 0.85rem; color: #a8b8cc;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .example-item:hover { border-color: rgba(201,162,39,0.3); color: var(--white); }
+    .example-item strong { color: var(--gold-light); display:block; font-size:0.75rem; margin-bottom:0.2rem; }
+
+    @media (max-width: 480px) {
+      .msg-wrap { max-width: 95%; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-avatar">🤖</div>
+  <div class="header-info">
+    <div class="header-name" id="assistantName">Assistant IA PME</div>
+    <div class="header-status">
+      <div class="status-dot"></div>
+      <span>En ligne — disponible 24h/24</span>
+    </div>
+  </div>
+  <div class="header-model" id="modelBadge">mistral</div>
+</header>
+
+<div class="chat-area" id="chatArea">
+  <div class="welcome" id="welcomeScreen">
+    <div class="welcome-icon">✨</div>
+    <h2>Bonjour ! Je suis votre assistant IA.</h2>
+    <p>Je suis configuré pour votre entreprise. Posez-moi n'importe quelle question, demandez-moi de rédiger, résumer ou générer du contenu professionnel.</p>
+    <div class="welcome-examples">
+      <div class="example-item" onclick="fillExample(this)">
+        <strong>📧 Email client</strong>
+        Rédige un email de relance poli pour un devis envoyé il y a 5 jours sans réponse
+      </div>
+      <div class="example-item" onclick="fillExample(this)">
+        <strong>📄 Devis rapide</strong>
+        Génère un devis pour la pose de 30m² de parquet chêne, fourniture et main d'œuvre incluses
+      </div>
+      <div class="example-item" onclick="fillExample(this)">
+        <strong>📝 Rapport d'intervention</strong>
+        Rédige un rapport d'intervention pour une fuite détectée sous évier cuisine, réparation effectuée le 25/02
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="suggestions" id="suggestions" style="display:none">
+  <button class="suggestion-btn" onclick="fillSuggestion('Rédige un email professionnel')">✉️ Email</button>
+  <button class="suggestion-btn" onclick="fillSuggestion('Génère un devis pour')">📄 Devis</button>
+  <button class="suggestion-btn" onclick="fillSuggestion('Résume ce texte :')">📝 Résumé</button>
+  <button class="suggestion-btn" onclick="fillSuggestion('Que répondre à ce client :')">💬 Réponse client</button>
+</div>
+
+<div class="input-area">
+  <div class="input-row">
+    <textarea id="msgInput" rows="1" placeholder="Posez votre question ou donnez une instruction..." 
+      onkeydown="handleKeydown(event)" oninput="autoResize(this)"></textarea>
+    <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+  </div>
+  <div class="input-footer">Modèle IA local · Données privées · IAPME.fr</div>
+</div>
+
+<script>
+  // Config from URL params
+  const params = new URLSearchParams(window.location.search);
+  const customerId = params.get('id') || 'demo';
+  const demo = params.get('demo') === 'true';
+
+  // Server URL — same origin or localhost:3341
+  const SERVER = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:3341'
+    : (window.location.origin.includes('github.io') ? 'http://localhost:3341' : window.location.origin);
+
+  let conversationHistory = [];
+  let isTyping = false;
+
+  if (demo) {
+    document.getElementById('assistantName').textContent = 'Assistant IA PME (Démo)';
+    document.getElementById('modelBadge').textContent = 'démo';
+  }
+
+  function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  }
+
+  function handleKeydown(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  }
+
+  function fillExample(el) {
+    const text = el.querySelector('strong').nextSibling.textContent.trim();
+    const input = document.getElementById('msgInput');
+    input.value = text;
+    autoResize(input);
+    input.focus();
+    document.getElementById('welcomeScreen').style.display = 'none';
+  }
+
+  function fillSuggestion(text) {
+    const input = document.getElementById('msgInput');
+    input.value = text + ' ';
+    autoResize(input);
+    input.focus();
+  }
+
+  function timeStr() {
+    return new Date().toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
+  }
+
+  function addMessage(text, role) {
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    if (welcomeScreen) welcomeScreen.style.display = 'none';
+    document.getElementById('suggestions').style.display = 'flex';
+
+    const chatArea = document.getElementById('chatArea');
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-wrap ' + role;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.textContent = role === 'user' ? '👤' : '🤖';
+
+    const content = document.createElement('div');
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.textContent = text;
+    const timeEl = document.createElement('div');
+    timeEl.className = 'msg-time';
+    timeEl.textContent = timeStr();
+    content.appendChild(bubble);
+    content.appendChild(timeEl);
+
+    wrap.appendChild(avatar);
+    wrap.appendChild(content);
+    chatArea.appendChild(wrap);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    return bubble;
+  }
+
+  function addTypingIndicator() {
+    const chatArea = document.getElementById('chatArea');
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-wrap bot';
+    wrap.id = 'typingWrap';
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.textContent = '🤖';
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble typing-indicator';
+    bubble.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+    wrap.appendChild(avatar);
+    wrap.appendChild(bubble);
+    chatArea.appendChild(wrap);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const el = document.getElementById('typingWrap');
+    if (el) el.remove();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('msgInput');
+    const text = input.value.trim();
+    if (!text || isTyping) return;
+
+    input.value = '';
+    input.style.height = 'auto';
+    isTyping = true;
+    document.getElementById('sendBtn').disabled = true;
+
+    addMessage(text, 'user');
+    conversationHistory.push({ role: 'user', content: text });
+
+    addTypingIndicator();
+
+    try {
+      const response = await fetch(`${SERVER}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerId,
+          message: text,
+          history: conversationHistory.slice(-8) // keep last 8 turns
+        })
+      });
+
+      removeTypingIndicator();
+
+      if (!response.ok) throw new Error('Erreur serveur ' + response.status);
+
+      const data = await response.json();
+      const reply = data.response || data.message || 'Désolé, je n\'ai pas pu répondre.';
+      conversationHistory.push({ role: 'assistant', content: reply });
+      addMessage(reply, 'bot');
+
+    } catch (err) {
+      removeTypingIndicator();
+      console.error(err);
+      // Fallback: try direct Ollama (demo mode)
+      if (demo || customerId === 'demo') {
+        await sendDirectOllama(text);
+      } else {
+        addMessage('⚠️ Impossible de contacter le serveur. Vérifiez que le serveur est démarré (port 3341).', 'bot');
+      }
+    }
+
+    isTyping = false;
+    document.getElementById('sendBtn').disabled = false;
+    input.focus();
+  }
+
+  async function sendDirectOllama(text) {
+    addTypingIndicator();
+    try {
+      const response = await fetch('http://localhost:11434/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'mistral',
+          prompt: `Tu es un assistant IA professionnel pour PME. Tu aides les chefs d'entreprise à rédiger des emails, devis, rapports et répondre à leurs questions métier. Sois concis, professionnel et pratique.\n\nQuestion: ${text}\n\nRéponse:`,
+          stream: false
+        })
+      });
+      removeTypingIndicator();
+      const data = await response.json();
+      const reply = data.response || 'Réponse indisponible.';
+      conversationHistory.push({ role: 'assistant', content: reply });
+      addMessage(reply, 'bot');
+    } catch(err2) {
+      removeTypingIndicator();
+      addMessage('⚠️ Le serveur Ollama n\'est pas accessible. Assurez-vous qu\'Ollama est démarré sur localhost:11434.', 'bot');
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bienvenue — Votre assistant IA est en préparation !</title>
+  <style>
+    :root { --navy:#0a1628; --gold:#c9a227; --gold-light:#f0c040; --white:#ffffff; --gray:#8892a4; }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--navy); color:var(--white); display:flex; align-items:center; justify-content:center; min-height:100vh; padding:2rem; }
+    .card { max-width:540px; text-align:center; background:#112240; border:1px solid rgba(201,162,39,0.3); border-radius:20px; padding:3rem 2.5rem; box-shadow:0 8px 40px rgba(0,0,0,0.4); }
+    .icon { font-size:4rem; margin-bottom:1.5rem; }
+    h1 { font-size:1.9rem; font-weight:800; margin-bottom:1rem; }
+    h1 span { color:var(--gold-light); }
+    p { color:var(--gray); line-height:1.7; margin-bottom:1rem; }
+    .steps { text-align:left; margin:1.5rem 0; background:rgba(201,162,39,0.06); border-radius:10px; padding:1.5rem; }
+    .step-item { display:flex; gap:0.8rem; margin-bottom:0.8rem; font-size:0.95rem; }
+    .step-item:last-child { margin-bottom:0; }
+    .step-num { color:var(--gold); font-weight:700; }
+    .btn { display:inline-block; background:linear-gradient(135deg,var(--gold),#e8b730); color:var(--navy); font-weight:800; padding:0.9rem 2rem; border-radius:10px; text-decoration:none; margin-top:1rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🎉</div>
+    <h1>Bienvenue !<br /><span>Votre assistant IA est en préparation.</span></h1>
+    <p>Paiement confirmé. Merci pour votre confiance !</p>
+    <div class="steps">
+      <div class="step-item"><span class="step-num">✓</span> Votre compte a été créé</div>
+      <div class="step-item"><span class="step-num">⏳</span> Votre assistant est en cours de configuration (dans les 24h)</div>
+      <div class="step-item"><span class="step-num">📧</span> Vous recevrez un email avec votre lien d'accès personnalisé</div>
+    </div>
+    <p>Des questions ? Écrivez-nous à <strong style="color:#f0c040">contact@geo-mod.com</strong></p>
+    <a href="index.html" class="btn">← Retour à l'accueil</a>
+  </div>
+</body>
+</html>
