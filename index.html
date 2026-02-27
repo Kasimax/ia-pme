@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Votre Assistant IA d'Entreprise — Opérationnel en 24h</title>
-  <meta name="description" content="Rédigez vos emails, générez vos devis, répondez à vos clients — automatiquement. Assistant IA PME à 49€/mois, sans engagement." />
+  <title>Assistant IA pour Artisans — Ne ratez plus jamais un client</title>
+  <meta name="description" content="Votre assistant IA répond à vos emails, rédige vos devis et relance vos prospects. Pendant que vous êtes sur le chantier. À partir de 49€/mois." />
   <style>
     :root {
       --navy: #0a1628;
@@ -33,30 +33,25 @@
     nav {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.2rem 2rem;
-      background: rgba(10,22,40,0.95);
+      background: rgba(10,22,40,0.97);
       backdrop-filter: blur(12px);
       position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid rgba(201,162,39,0.15);
     }
-    .nav-logo {
-      font-size: 1.3rem; font-weight: 700;
-      color: var(--gold);
-      letter-spacing: -0.5px;
-    }
+    .nav-logo { font-size: 1.3rem; font-weight: 700; color: var(--gold); letter-spacing: -0.5px; }
     .nav-logo span { color: var(--white); }
     .nav-cta {
       background: var(--gold); color: var(--navy);
       padding: 0.55rem 1.4rem; border-radius: 8px;
       font-weight: 700; font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
+      text-decoration: none; transition: all 0.2s;
     }
     .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 
     /* HERO */
     .hero {
       text-align: center;
-      padding: 6rem 2rem 5rem;
+      padding: 5.5rem 2rem 4.5rem;
       background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 60%, #0d2a4a 100%);
       position: relative; overflow: hidden;
     }
@@ -69,20 +64,17 @@
     }
     .hero-badge {
       display: inline-block;
-      background: rgba(201,162,39,0.15);
+      background: rgba(201,162,39,0.12);
       border: 1px solid rgba(201,162,39,0.4);
       color: var(--gold-light);
       padding: 0.4rem 1.2rem; border-radius: 50px;
       font-size: 0.85rem; font-weight: 600;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem; letter-spacing: 0.5px;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-      color: var(--white);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800; line-height: 1.15;
+      margin-bottom: 1.2rem; color: var(--white);
     }
     .hero h1 em {
       font-style: normal;
@@ -92,10 +84,9 @@
       background-clip: text;
     }
     .hero-sub {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #a8b8cc;
-      max-width: 640px;
-      margin: 0 auto 2.5rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #a8b8cc; max-width: 620px;
+      margin: 0 auto 2.5rem; line-height: 1.7;
     }
     .hero-actions {
       display: flex; gap: 1rem;
@@ -106,44 +97,52 @@
       color: var(--navy); font-weight: 800;
       padding: 1rem 2.2rem; border-radius: 10px;
       text-decoration: none; font-size: 1.05rem;
-      box-shadow: var(--shadow-gold);
-      transition: all 0.25s;
+      box-shadow: var(--shadow-gold); transition: all 0.25s;
       display: inline-block;
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,162,39,0.4); }
     .btn-secondary {
-      background: transparent;
-      color: var(--white); font-weight: 600;
+      background: transparent; color: var(--white); font-weight: 600;
       padding: 1rem 2.2rem; border-radius: 10px;
       border: 1.5px solid rgba(255,255,255,0.25);
       text-decoration: none; font-size: 1.05rem;
-      transition: all 0.25s;
-      display: inline-block;
+      transition: all 0.25s; display: inline-block;
     }
     .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
-
     .hero-trust {
-      margin-top: 2.5rem;
-      font-size: 0.85rem; color: var(--gray);
-      display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-      flex-wrap: wrap;
+      margin-top: 2.5rem; font-size: 0.85rem; color: var(--gray);
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
     }
     .hero-trust span::before { content: '✓ '; color: var(--gold); }
 
-    /* LOGOS / SOCIAL PROOF */
+    /* SCENARIO CHOC */
+    .scenario {
+      background: #060e1a;
+      border-top: 3px solid var(--gold);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .scenario-inner { max-width: 720px; margin: 0 auto; }
+    .scenario-text {
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      line-height: 1.75; color: #c8d6e6;
+    }
+    .scenario-text strong { color: var(--gold-light); }
+    .scenario-punchline {
+      margin-top: 1.5rem;
+      font-size: 1.15rem; font-weight: 700; color: var(--white);
+    }
+    .scenario-punchline em { color: var(--gold); font-style: normal; }
+
+    /* SOCIAL PROOF / METIERS */
     .social-proof {
-      background: var(--navy-light);
-      padding: 2rem;
+      background: var(--navy-light); padding: 2rem;
       text-align: center;
       border-top: 1px solid rgba(201,162,39,0.1);
       border-bottom: 1px solid rgba(201,162,39,0.1);
     }
-    .social-proof p {
-      color: var(--gray); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .sector-tags {
-      display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;
-    }
+    .social-proof p { color: var(--gray); font-size: 0.85rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+    .sector-tags { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
     .sector-tag {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.1);
@@ -151,82 +150,229 @@
       font-size: 0.85rem; color: #a8b8cc;
     }
 
-    /* FEATURES */
-    .features {
+    /* BENEFITS */
+    .benefits {
       padding: 5rem 2rem;
-      max-width: 1100px; margin: 0 auto;
+      max-width: 1000px; margin: 0 auto;
     }
     .section-label {
-      text-align: center;
-      color: var(--gold); font-size: 0.85rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      margin-bottom: 0.8rem;
+      text-align: center; color: var(--gold); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.8rem;
     }
     .section-title {
-      text-align: center;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      text-align: center; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
       font-weight: 800; margin-bottom: 0.8rem;
     }
     .section-sub {
-      text-align: center;
-      color: var(--gray);
-      max-width: 560px;
-      margin: 0 auto 3.5rem;
+      text-align: center; color: var(--gray);
+      max-width: 560px; margin: 0 auto 3.5rem;
     }
-    .features-grid {
+    .benefits-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
-    .feature-card {
+    .benefit-card {
       background: var(--navy-light);
       border: 1px solid rgba(201,162,39,0.12);
-      border-radius: var(--radius);
-      padding: 2rem;
+      border-radius: var(--radius); padding: 2rem;
       transition: all 0.3s;
-      position: relative; overflow: hidden;
     }
-    .feature-card::before {
-      content: '';
-      position: absolute; top:0; left:0; right:0; height:3px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .feature-card:hover { transform: translateY(-4px); border-color: rgba(201,162,39,0.35); box-shadow: var(--shadow); }
-    .feature-card:hover::before { opacity: 1; }
-    .feature-icon {
-      font-size: 2.2rem; margin-bottom: 1rem;
-    }
-    .feature-title {
-      font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;
-      color: var(--white);
-    }
-    .feature-desc {
-      color: var(--gray); font-size: 0.92rem; line-height: 1.6;
-    }
-    .feature-example {
+    .benefit-card:hover { transform: translateY(-4px); border-color: rgba(201,162,39,0.4); box-shadow: var(--shadow); }
+    .benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .benefit-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .benefit-desc { color: var(--gray); font-size: 0.93rem; line-height: 1.65; }
+    .benefit-stat {
       margin-top: 1rem;
-      background: rgba(201,162,39,0.08);
-      border-left: 3px solid var(--gold);
-      padding: 0.6rem 0.9rem;
-      border-radius: 0 6px 6px 0;
-      font-size: 0.82rem; color: var(--gold-light);
-      font-style: italic;
+      display: inline-block;
+      background: rgba(201,162,39,0.1);
+      border: 1px solid rgba(201,162,39,0.3);
+      color: var(--gold-light); font-size: 0.82rem; font-weight: 700;
+      padding: 0.3rem 0.8rem; border-radius: 20px;
     }
 
-    /* HOW IT WORKS */
-    .how-it-works {
+    /* AUTOMATISATIONS */
+    .automations {
       background: var(--navy-light);
       padding: 5rem 2rem;
     }
-    .steps {
-      max-width: 800px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 0;
+    .automations-inner { max-width: 1100px; margin: 0 auto; }
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
     }
+    .auto-card {
+      background: var(--navy);
+      border: 1px solid rgba(201,162,39,0.15);
+      border-radius: var(--radius); padding: 1.8rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .auto-card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .auto-card:hover { border-color: rgba(201,162,39,0.4); transform: translateY(-3px); }
+    .auto-card:hover::after { transform: scaleX(1); }
+    .auto-icon { font-size: 2rem; flex-shrink: 0; }
+    .auto-content h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .auto-content p { color: var(--gray); font-size: 0.88rem; line-height: 1.55; }
+    .auto-badge {
+      display: inline-block;
+      margin-top: 0.6rem;
+      background: rgba(34,197,94,0.1); color: #4ade80;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 0.2rem 0.7rem; border-radius: 12px;
+      border: 1px solid rgba(34,197,94,0.25);
+    }
+
+    /* TARGET */
+    .target-section {
+      padding: 4rem 2rem;
+      max-width: 900px; margin: 0 auto;
+      text-align: center;
+    }
+    .target-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 2.5rem;
+    }
+    .target-item {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 1.2rem;
+      font-size: 0.95rem; color: #c8d6e6;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .target-item::before { content: '✓'; color: var(--gold); font-weight: 700; }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: #060e1a;
+      padding: 5rem 2rem;
+    }
+    .testimonials-inner { max-width: 1000px; margin: 0 auto; }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 16px; padding: 2rem;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute; top: -8px; left: 1.5rem;
+      font-size: 5rem; color: var(--gold); opacity: 0.25;
+      font-family: Georgia, serif; line-height: 1;
+    }
+    .testimonial-text {
+      font-size: 0.97rem; line-height: 1.75; color: #c8d6e6;
+      font-style: italic; margin-bottom: 1.2rem;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #b8860b);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: var(--navy); flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.95rem; }
+    .author-title { color: var(--gray); font-size: 0.82rem; }
+    .author-rating { margin-left: auto; color: var(--gold); font-size: 0.9rem; }
+
+    /* PRICING */
+    .pricing {
+      padding: 5rem 2rem;
+      background: var(--navy-light);
+    }
+    .pricing-inner { max-width: 1000px; margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 3rem; align-items: start;
+    }
+    .pricing-card {
+      background: var(--navy);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 2.5rem 2rem;
+      position: relative; overflow: hidden;
+      transition: all 0.3s;
+    }
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card.featured {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-gold), var(--shadow);
+    }
+    .pricing-card.featured::before {
+      content: '★ Le plus choisi';
+      position: absolute; top: 0; right: 1.5rem;
+      background: linear-gradient(135deg, var(--gold), #e8b730);
+      color: var(--navy); font-weight: 700; font-size: 0.75rem;
+      padding: 0.3rem 1rem; border-radius: 0 0 8px 8px;
+    }
+    .plan-name { font-size: 0.85rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+    .plan-desc { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.5rem; line-height: 1.5; }
+    .price-amount { font-size: 3.5rem; font-weight: 900; color: var(--gold-light); line-height: 1; }
+    .price-amount sup { font-size: 1.6rem; vertical-align: top; margin-top: 0.6rem; }
+    .price-period { color: var(--gray); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .price-equiv { color: var(--gold); font-size: 0.82rem; font-weight: 600; margin-bottom: 2rem; }
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan-features li {
+      padding: 0.5rem 0; color: #a8b8cc;
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plan-cta {
+      display: block; width: 100%;
+      background: linear-gradient(135deg, var(--gold), #e8b730);
+      color: var(--navy); font-weight: 800;
+      padding: 1rem; border-radius: 10px;
+      text-decoration: none; font-size: 1rem;
+      box-shadow: var(--shadow-gold); transition: all 0.25s;
+      text-align: center; margin-bottom: 0.8rem;
+    }
+    .plan-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,162,39,0.5); }
+    .plan-cta.outline {
+      background: transparent;
+      border: 1.5px solid rgba(201,162,39,0.4);
+      color: var(--gold-light);
+      box-shadow: none;
+    }
+    .plan-cta.outline:hover { background: rgba(201,162,39,0.08); }
+    .plan-guarantee { color: var(--gray); font-size: 0.78rem; text-align: center; }
+    .plan-guarantee strong { color: var(--gold-light); }
+
+    /* PRICING NOTE */
+    .pricing-note {
+      margin-top: 2.5rem; text-align: center;
+      padding: 1.5rem 2rem;
+      background: rgba(201,162,39,0.06);
+      border: 1px solid rgba(201,162,39,0.2);
+      border-radius: 12px;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .pricing-note p { color: #a8b8cc; font-size: 0.92rem; line-height: 1.6; }
+    .pricing-note strong { color: var(--gold-light); }
+
+    /* HOW IT WORKS */
+    .how-it-works { background: var(--navy); padding: 5rem 2rem; }
+    .steps { max-width: 750px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
     .step {
       display: flex; gap: 2rem; align-items: flex-start;
-      padding: 1.5rem 0;
-      position: relative;
+      padding: 1.5rem 0; position: relative;
     }
     .step:not(:last-child)::after {
       content: '';
@@ -239,122 +385,14 @@
       background: linear-gradient(135deg, var(--gold), #e8b730);
       color: var(--navy); font-weight: 900;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0;
-      box-shadow: var(--shadow-gold);
+      font-size: 1rem; flex-shrink: 0; box-shadow: var(--shadow-gold);
     }
-    .step-content h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .step-content h3 { font-size: 1.05rem; margin-bottom: 0.3rem; }
     .step-content p { color: var(--gray); font-size: 0.92rem; }
 
-    /* TESTIMONIAL */
-    .testimonial-section {
-      padding: 5rem 2rem;
-      max-width: 900px; margin: 0 auto;
-    }
-    .testimonial-card {
-      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
-      border: 1px solid rgba(201,162,39,0.25);
-      border-radius: 16px;
-      padding: 2.5rem;
-      position: relative;
-    }
-    .testimonial-card::before {
-      content: '"';
-      position: absolute; top: -10px; left: 2rem;
-      font-size: 6rem; color: var(--gold); opacity: 0.3;
-      font-family: Georgia, serif; line-height: 1;
-    }
-    .testimonial-text {
-      font-size: 1.1rem; line-height: 1.75;
-      color: #d0dce8;
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    .testimonial-author {
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .author-avatar {
-      width: 52px; height: 52px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), #b8860b);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.2rem; color: var(--navy);
-    }
-    .author-name { font-weight: 700; font-size: 1rem; }
-    .author-title { color: var(--gray); font-size: 0.85rem; }
-    .author-rating { margin-left: auto; color: var(--gold); font-size: 1rem; }
-
-    /* PRICING */
-    .pricing {
-      padding: 5rem 2rem;
-      background: var(--navy-light);
-      text-align: center;
-    }
-    .pricing-card {
-      max-width: 480px; margin: 0 auto;
-      background: var(--navy);
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      box-shadow: var(--shadow-gold), var(--shadow);
-      position: relative; overflow: hidden;
-    }
-    .pricing-card::before {
-      content: '★ Plus populaire';
-      position: absolute; top: 0; right: 2rem;
-      background: linear-gradient(135deg, var(--gold), #e8b730);
-      color: var(--navy); font-weight: 700; font-size: 0.78rem;
-      padding: 0.3rem 1rem;
-      border-radius: 0 0 8px 8px;
-    }
-    .price-amount {
-      font-size: 4rem; font-weight: 900;
-      color: var(--gold-light);
-      line-height: 1;
-    }
-    .price-amount sup { font-size: 1.8rem; vertical-align: top; margin-top: 0.7rem; }
-    .price-period { color: var(--gray); font-size: 1rem; margin-bottom: 2rem; }
-    .price-features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-    .price-features li {
-      padding: 0.5rem 0;
-      color: #a8b8cc;
-      display: flex; align-items: center; gap: 0.7rem;
-      font-size: 0.95rem;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .price-features li:last-child { border-bottom: none; }
-    .price-features li::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: 700; flex-shrink: 0;
-    }
-    .pricing-cta {
-      display: block; width: 100%;
-      background: linear-gradient(135deg, var(--gold), #e8b730);
-      color: var(--navy); font-weight: 800;
-      padding: 1.1rem; border-radius: 10px;
-      text-decoration: none; font-size: 1.1rem;
-      box-shadow: var(--shadow-gold);
-      transition: all 0.25s;
-      margin-bottom: 1rem;
-    }
-    .pricing-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,162,39,0.5); }
-    .pricing-guarantee {
-      font-size: 0.82rem; color: var(--gray);
-    }
-    .pricing-guarantee strong { color: var(--gold-light); }
-
     /* FAQ */
-    .faq {
-      padding: 5rem 2rem;
-      max-width: 720px; margin: 0 auto;
-    }
-    .faq-item {
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 1.3rem 0;
-    }
+    .faq { padding: 5rem 2rem; max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.3rem 0; }
     .faq-q {
       font-weight: 700; font-size: 1rem; color: var(--white);
       margin-bottom: 0.5rem; cursor: pointer;
@@ -364,47 +402,31 @@
     .faq-a { color: var(--gray); font-size: 0.93rem; line-height: 1.65; }
 
     /* CTA BANNER */
-    .cta-banner {
-      background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .cta-banner h2 {
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      color: var(--navy); font-weight: 800;
-      margin-bottom: 0.8rem;
-    }
-    .cta-banner p {
-      color: rgba(10,22,40,0.75);
-      margin-bottom: 2rem; font-size: 1rem;
-    }
+    .cta-banner { background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%); padding: 4rem 2rem; text-align: center; }
+    .cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--navy); font-weight: 800; margin-bottom: 0.8rem; }
+    .cta-banner p { color: rgba(10,22,40,0.75); margin-bottom: 2rem; font-size: 1rem; }
     .btn-dark {
       background: var(--navy); color: var(--gold-light);
       padding: 1rem 2.5rem; border-radius: 10px;
       font-weight: 800; font-size: 1.05rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.25s;
-      box-shadow: 0 4px 20px rgba(10,22,40,0.3);
+      text-decoration: none; display: inline-block;
+      transition: all 0.25s; box-shadow: 0 4px 20px rgba(10,22,40,0.3);
     }
     .btn-dark:hover { transform: translateY(-2px); }
 
     /* FOOTER */
     footer {
-      background: #060e1a;
-      padding: 2rem;
-      text-align: center;
-      color: var(--gray);
-      font-size: 0.85rem;
+      background: #060e1a; padding: 2rem;
+      text-align: center; color: var(--gray); font-size: 0.85rem;
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     footer a { color: var(--gold); text-decoration: none; }
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      .hero { padding: 4rem 1.2rem 3.5rem; }
-      .features, .testimonial-section, .faq { padding: 3rem 1.2rem; }
-      .pricing { padding: 3rem 1.2rem; }
+      .hero { padding: 3.5rem 1.2rem 3rem; }
+      .benefits, .target-section, .faq { padding: 3rem 1.2rem; }
+      .automations, .pricing, .testimonials { padding: 3rem 1.2rem; }
       .pricing-card { padding: 2rem 1.5rem; }
       .cta-banner { padding: 3rem 1.2rem; }
       .step { flex-direction: column; gap: 0.8rem; }
@@ -415,10 +437,10 @@
 <body>
 
 <!-- CONVERSION BAR -->
-<div id="conv-bar" style="background:linear-gradient(90deg,#060e1a,#0a1628);border-bottom:1px solid rgba(201,162,39,0.25);padding:11px 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;align-items:center;font-size:13px;color:#fff;">
-  <span>🔥 <strong style="color:#c9a227">847 entreprises</strong> <span style="color:#8892a4">ont adopté l'IA cette semaine</span></span>
+<div style="background:linear-gradient(90deg,#060e1a,#0a1628);border-bottom:1px solid rgba(201,162,39,0.25);padding:11px 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;align-items:center;font-size:13px;color:#fff;">
+  <span>🔥 <strong style="color:#c9a227">Artisans</strong> <span style="color:#8892a4">— ne ratez plus jamais un prospect depuis le chantier</span></span>
   <span style="color:#2a3a4a">|</span>
-  <span style="color:#8892a4">⏰ Offre valable encore :&nbsp;<strong id="countdown" style="color:#c9a227;font-variant-numeric:tabular-nums">72h 00m 00s</strong></span>
+  <span>⏰ Offre sans engagement — <strong id="countdown" style="color:#c9a227;font-variant-numeric:tabular-nums">72h 00m 00s</strong></span>
   <span style="color:#2a3a4a">|</span>
   <span>🔒 <strong style="color:#22c55e">Paiement sécurisé</strong>&nbsp;<span style="background:#635BFF;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">STRIPE</span></span>
 </div>
@@ -426,81 +448,263 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">IA<span>PME</span>.fr</div>
-  <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="nav-cta" target="_blank">Démarrer — 49€/mois</a>
+  <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="nav-cta" target="_blank">Démarrer — dès 49€/mois</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">⚡ Opérationnel en 24h — Sans engagement</div>
-  <h1>Votre Assistant IA d'Entreprise<br /><em>Opérationnel en 24h</em></h1>
-  <p class="hero-sub">Rédigez vos emails, générez vos devis, répondez à vos clients — <strong style="color:#fff">automatiquement</strong>. Votre assistant IA personnel, disponible 24h/24.</p>
+  <div class="hero-badge">⚡ Pour plombiers, électriciens, menuisiers, peintres…</div>
+  <h1>Vous perdez des clients<br />parce que vous n'avez pas<br /><em>le temps de répondre ?</em></h1>
+  <p class="hero-sub">Votre assistant IA répond à vos emails, rédige vos devis et relance vos prospects. <strong style="color:#fff">Pendant que vous êtes sur le chantier.</strong> À partir de 49€/mois, sans engagement.</p>
   <div class="hero-actions">
-    <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="btn-primary" target="_blank">🚀 Je veux mon assistant IA — 49€/mois</a>
-    <a href="chat.html?demo=true" class="btn-secondary">💬 Tester en direct</a>
+    <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="btn-primary" target="_blank">🚀 Démarrer à 49€/mois — Sans engagement</a>
+    <a href="#pricing" class="btn-secondary">Voir les offres</a>
   </div>
   <div class="hero-trust">
     <span>Sans engagement</span>
     <span>Résiliation en 1 clic</span>
-    <span>Configuré pour votre métier</span>
-    <span>Support inclus</span>
+    <span>30 jours satisfait ou remboursé</span>
+    <span>Opérationnel en 24h</span>
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<div class="social-proof">
-  <p>Conçu pour tous les secteurs</p>
-  <div class="sector-tags">
-    <span class="sector-tag">🔧 BTP & Artisanat</span>
-    <span class="sector-tag">📐 Géomètres</span>
-    <span class="sector-tag">⚖️ Professions libérales</span>
-    <span class="sector-tag">🏪 Commerce</span>
-    <span class="sector-tag">🏗️ Entrepreneurs</span>
-    <span class="sector-tag">🚗 Auto / Moto</span>
+<!-- SCENARIO CHOC -->
+<div class="scenario">
+  <div class="scenario-inner">
+    <p class="scenario-text">
+      Vous êtes sur le chantier. Les mains dans les tuyaux, sur l'échelle, la scie qui tourne.<br />
+      <strong>Un prospect vous appelle. Personne ne répond.</strong><br />
+      Il attend 5 minutes. Il rappelle le lendemain matin. Toujours occupé.<br />
+      <strong>Il appelle le concurrent. Il signe avec lui.</strong>
+    </p>
+    <p class="scenario-punchline">1 appel raté = <em>1 client chez le concurrent</em>. Ça arrive tous les jours.</p>
   </div>
 </div>
 
-<!-- FEATURES -->
-<section class="features">
-  <p class="section-label">Ce que fait votre assistant</p>
-  <h2 class="section-title">Tout ce dont votre entreprise a besoin, en quelques secondes</h2>
-  <p class="section-sub">Votre assistant connaît votre métier, votre ton, vos clients. Il travaille pendant que vous travaillez.</p>
+<!-- SOCIAL PROOF / METIERS -->
+<div class="social-proof">
+  <p>Fait pour tous les artisans</p>
+  <div class="sector-tags">
+    <span class="sector-tag">🔧 Plombier</span>
+    <span class="sector-tag">⚡ Électricien</span>
+    <span class="sector-tag">🪵 Menuisier</span>
+    <span class="sector-tag">🎨 Peintre</span>
+    <span class="sector-tag">🔑 Serrurier</span>
+    <span class="sector-tag">🔥 Chauffagiste</span>
+    <span class="sector-tag">🪟 Carreleur</span>
+    <span class="sector-tag">🏗️ CVC / Clim</span>
+  </div>
+</div>
 
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">✉️</div>
-      <div class="feature-title">Rédaction d'emails</div>
-      <div class="feature-desc">Répondez à vos clients en secondes. Votre assistant rédige des emails professionnels, dans votre style, sans faute.</div>
-      <div class="feature-example">"Rédige un email de relance pour M. Dupont qui attend son devis depuis 3 jours"</div>
+<!-- BENEFITS — 3 bénéfices concrets -->
+<section class="benefits">
+  <p class="section-label">Ce que vous gagnez immédiatement</p>
+  <h2 class="section-title">3 problèmes réglés dès le premier jour</h2>
+  <p class="section-sub">Pendant que vous posez, soudez ou installez — votre assistant travaille pour vous.</p>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">📧</div>
+      <div class="benefit-title">Répond à vos emails clients en moins d'1h, 24h/24</div>
+      <div class="benefit-desc">Un prospect vous écrit à 22h après avoir vu votre devis ? L'IA lui répond dans la foulée, professionnellement, avec les bonnes infos. Vous, vous dormez.</div>
+      <span class="benefit-stat">⏱ Réponse en &lt;1h — même la nuit</span>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">📄</div>
-      <div class="feature-title">Génération de devis</div>
-      <div class="feature-desc">Décrivez le chantier ou la prestation, l'assistant génère un devis structuré prêt à envoyer.</div>
-      <div class="feature-example">"Devis pose carrelage 45m², sol + douche, fourniture incluse"</div>
+    <div class="benefit-card">
+      <div class="benefit-icon">📝</div>
+      <div class="benefit-title">Rédige vos devis en 2 minutes depuis vos notes vocales</div>
+      <div class="benefit-desc">Dictez en 30 secondes depuis votre camionnette : "Pose carrelage salle de bain, 12m², fourniture gris anthracite". Le devis est généré, prêt à envoyer.</div>
+      <span class="benefit-stat">⚡ 2 min au lieu de 45 min</span>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">💬</div>
-      <div class="feature-title">FAQ client automatique</div>
-      <div class="feature-desc">Configurez votre base de connaissance. L'assistant répond à vos questions fréquentes 24h/24.</div>
-      <div class="feature-example">"Quels sont vos délais ? Comment puis-je vous contacter ?"</div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🔔</div>
+      <div class="benefit-title">Relance automatiquement les prospects qui n'ont pas répondu</div>
+      <div class="benefit-desc">Un devis envoyé sans réponse ? L'IA relance le prospect au bout de 3 jours, puis 7 jours. Vos concurrents font ça à la main — ou pas du tout.</div>
+      <span class="benefit-stat">🎯 +40% de devis transformés</span>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">📝</div>
-      <div class="feature-title">Résumé de réunions</div>
-      <div class="feature-desc">Collez vos notes de réunion, l'IA les transforme en compte-rendu professionnel avec actions à suivre.</div>
-      <div class="feature-example">"Résume ce compte-rendu de chantier et liste les actions pour la semaine"</div>
+  </div>
+</section>
+
+<!-- AUTOMATISATIONS — Section dédiée -->
+<section class="automations">
+  <div class="automations-inner">
+    <p class="section-label">Offre Pro</p>
+    <h2 class="section-title">Ce qu'on automatise pour vous</h2>
+    <p class="section-sub">L'offre Pro va plus loin : on branche l'IA sur vos outils et on automatise chaque tâche répétitive de votre journée.</p>
+    <div class="auto-grid">
+      <div class="auto-card">
+        <div class="auto-icon">📞</div>
+        <div class="auto-content">
+          <h3>Devis automatique depuis un appel</h3>
+          <p>Vous dictez le devis par téléphone → il est rédigé, mis en page et envoyé au client automatiquement. Sans toucher un ordinateur.</p>
+          <span class="auto-badge">✓ Actif 24h/24</span>
+        </div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-icon">📧</div>
+        <div class="auto-content">
+          <h3>Réponse en 5 minutes sans intervention</h3>
+          <p>Un prospect vous contacte → il reçoit une réponse personnalisée en 5 minutes. Vous ne faites rien. L'IA s'en charge.</p>
+          <span class="auto-badge">✓ Répond à votre place</span>
+        </div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-icon">🔔</div>
+        <div class="auto-content">
+          <h3>Relance impayé automatique à J+7</h3>
+          <p>Un client ne paie pas → il reçoit une relance automatique et professionnelle au bout de 7 jours. Vous êtes notifié seulement si ça bloque.</p>
+          <span class="auto-badge">✓ Zéro oubli</span>
+        </div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-icon">📅</div>
+        <div class="auto-content">
+          <h3>Prise de RDV directe dans votre agenda</h3>
+          <p>Un client veut un rendez-vous → il peut réserver directement dans votre agenda. Fini les allers-retours par SMS pour trouver un créneau.</p>
+          <span class="auto-badge">✓ Agenda synchronisé</span>
+        </div>
+      </div>
+      <div class="auto-card">
+        <div class="auto-icon">📊</div>
+        <div class="auto-content">
+          <h3>Résumé hebdo de vos prospects</h3>
+          <p>Fin de semaine → vous recevez un résumé clair de vos prospects en cours, vos devis ouverts et les relances à prévoir. En 30 secondes, vous savez tout.</p>
+          <span class="auto-badge">✓ Chaque vendredi soir</span>
+        </div>
+      </div>
+      <div class="auto-card" style="border-color:rgba(201,162,39,0.3);background:rgba(201,162,39,0.04)">
+        <div class="auto-icon">⚙️</div>
+        <div class="auto-content">
+          <h3>Et bien d'autres automatisations</h3>
+          <p>Chaque artisan a ses propres processus. On analyse votre activité et on automatise ce qui vous prend le plus de temps. Sur mesure, à votre rythme.</p>
+          <span class="auto-badge" style="background:rgba(201,162,39,0.1);color:#f0c040;border-color:rgba(201,162,39,0.3)">✓ Sur mesure</span>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">📊</div>
-      <div class="feature-title">Rédaction de rapports</div>
-      <div class="feature-desc">Rapports d'intervention, bilans hebdo, comptes-rendus clients — en 30 secondes au lieu de 30 minutes.</div>
-      <div class="feature-example">"Rédige un rapport d'intervention plomberie pour la résidence Les Pins"</div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="target-section">
+  <p class="section-label">Pour qui c'est fait</p>
+  <h2 class="section-title">C'est fait pour vous si...</h2>
+  <div class="target-grid">
+    <div class="target-item">Vous êtes plombier, électricien, menuisier, peintre ou carreleur</div>
+    <div class="target-item">Vous avez entre 1 et 10 salariés</div>
+    <div class="target-item">Vous perdez des devis parce que vous répondez trop tard</div>
+    <div class="target-item">Vous passez vos soirées à faire de l'administratif</div>
+    <div class="target-item">Vos clients se plaignent de ne pas avoir de nouvelles</div>
+    <div class="target-item">Vous voulez décrocher plus de chantiers sans recruter</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <p class="section-label">Ils ont testé</p>
+    <h2 class="section-title" style="text-align:center">Ce qu'ils en disent</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Depuis que j'ai l'IA, je ne rate plus un devis. Avant, je répondais le soir épuisé, souvent trop tard. Maintenant ça répond automatiquement. Ça m'a rapporté 3 nouveaux clients en 1 mois."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TR</div>
+          <div>
+            <div class="author-name">Thomas R.</div>
+            <div class="author-title">Plombier, Nantes</div>
+          </div>
+          <div class="author-rating">★★★★★</div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Le devis automatique me fait gagner 2h par jour. À 49€ le mois, c'est amorti en une heure de travail. J'aurais dû le faire bien avant."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">KB</div>
+          <div>
+            <div class="author-name">Karine B.</div>
+            <div class="author-title">Électricienne, Lyon</div>
+          </div>
+          <div class="author-rating">★★★★★</div>
+        </div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="feature-icon">🎯</div>
-      <div class="feature-title">Rédaction commerciale</div>
-      <div class="feature-desc">Fiches produits, propositions commerciales, posts réseaux sociaux — votre assistant rédige tout.</div>
-      <div class="feature-example">"Rédige un post LinkedIn pour promouvoir mon service de maintenance préventive"</div>
+  </div>
+</section>
+
+<!-- PRICING — 3 plans -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-label">Tarifs</p>
+    <h2 class="section-title" style="text-align:center">Choisissez votre niveau</h2>
+    <p class="section-sub" style="margin:0 auto 0.5rem">Simple, transparent, sans engagement. Changez ou résiliez à tout moment.</p>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-desc">L'assistant IA qui répond, rédige et relance — pendant que vous bossez.</div>
+        <div class="price-amount"><sup>€</sup>49</div>
+        <div class="price-period">par mois · sans engagement</div>
+        <div class="price-equiv">Soit moins de 2€/jour — 1 nouveau client et c'est rentabilisé</div>
+        <ul class="plan-features">
+          <li>Répond à vos emails clients (24h/24)</li>
+          <li>Rédige vos devis depuis vos notes vocales</li>
+          <li>Relance automatique des prospects sans réponse</li>
+          <li>Accès via web &amp; téléphone</li>
+          <li>Configuré pour votre métier en 24h</li>
+          <li>Support email inclus</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="plan-cta" target="_blank">
+          🚀 Démarrer — 49€/mois
+        </a>
+        <p class="plan-guarantee"><strong>Garantie 30 jours</strong> satisfait ou remboursé</p>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card featured">
+        <div class="plan-name">Pro</div>
+        <div class="plan-desc">Tout le Starter + automatisation complète de vos processus métier.</div>
+        <div class="price-amount"><sup>€</sup>99</div>
+        <div class="price-period">par mois · sans engagement</div>
+        <div class="price-equiv">Soit 3,30€/jour — 1 chantier de plus et c'est rentabilisé</div>
+        <ul class="plan-features">
+          <li>Tout ce qui est inclus dans Starter</li>
+          <li>Devis auto depuis un appel vocal</li>
+          <li>Réponse client en moins de 5 min</li>
+          <li>Relances impayés automatiques (J+7)</li>
+          <li>Prise de RDV dans votre agenda</li>
+          <li>Résumé hebdo prospects &amp; devis</li>
+          <li>Mise à jour du carnet de commandes</li>
+          <li>Alerte quand un prospect ouvre votre email</li>
+          <li>Support prioritaire téléphone + email</li>
+        </ul>
+        <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="plan-cta" target="_blank">
+          ⚡ Passer au Pro — 99€/mois
+        </a>
+        <p class="plan-guarantee"><strong>Garantie 30 jours</strong> satisfait ou remboursé</p>
+      </div>
+
+      <!-- SUR MESURE -->
+      <div class="pricing-card">
+        <div class="plan-name">Sur mesure</div>
+        <div class="plan-desc">Vous avez des besoins spécifiques ? On construit exactement ce qu'il vous faut.</div>
+        <div class="price-amount" style="font-size:2rem;margin-top:0.5rem">Sur devis</div>
+        <div class="price-period" style="margin-bottom:0.5rem">Nous contacter</div>
+        <div class="price-equiv">&nbsp;</div>
+        <ul class="plan-features">
+          <li>Analyse de vos processus métier</li>
+          <li>Automatisations sur mesure</li>
+          <li>Intégrations logiciels existants</li>
+          <li>Formation de votre équipe</li>
+          <li>Accompagnement dédié</li>
+          <li>SLA personnalisé</li>
+        </ul>
+        <a href="mailto:contact@geo-mod.com?subject=Demande Sur Mesure IA PME" class="plan-cta outline" target="_blank">
+          📩 Nous contacter
+        </a>
+        <p class="plan-guarantee">Réponse sous 24h</p>
+      </div>
+    </div>
+
+    <div class="pricing-note" style="margin-top:2.5rem">
+      <p>🔒 <strong>Garantie 30 jours</strong> — Si ça ne vous convient pas après 30 jours d'utilisation, on vous rembourse intégralement. Sans conditions. Sans questions.</p>
     </div>
   </div>
 </section>
@@ -513,70 +717,24 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h3>Vous souscrivez en ligne</h3>
-        <p>Paiement sécurisé par Stripe. 49€/mois, résiliable à tout moment. Pas de contrat annuel, pas de surprise.</p>
+        <h3>Vous choisissez votre offre en ligne</h3>
+        <p>Paiement sécurisé par Stripe. 49€ ou 99€/mois, résiliable à tout moment. Pas de contrat, pas de surprise.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h3>On configure votre assistant</h3>
-        <p>Dans les 24h, nous configurons votre assistant pour votre secteur : BTP, libéral, commerce... Il connaît votre métier dès le premier jour.</p>
+        <h3>On configure votre assistant dans les 24h</h3>
+        <p>On le paramètre selon votre métier : plombier, électricien, peintre… Il connaît vos prestations, vos tarifs habituels, votre ton. Dès le premier jour, il est prêt.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <h3>Vous discutez, il travaille</h3>
-        <p>Accès via un lien web ou Telegram. Posez vos questions, demandez vos textes, il répond immédiatement — depuis votre téléphone ou votre ordinateur.</p>
+        <h3>Vous travaillez. Lui répond.</h3>
+        <p>Depuis votre téléphone ou votre ordinateur. Dictez un devis en camionnette, il l'envoie. Un client écrit à 23h, il répond. Vous vous concentrez sur le chantier.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TESTIMONIAL -->
-<section class="testimonial-section">
-  <p class="section-label">Témoignage client</p>
-  <div class="testimonial-card">
-    <p class="testimonial-text">
-      "Avant, je passais une heure par soir à répondre aux emails et à faire mes devis. Maintenant je dicte à l'assistant, je relis, je signe. Ça me prend 10 minutes. J'ai même commencé à poster sur Instagram grâce à lui — quelque chose que j'aurais jamais fait tout seul. Pour 49€ par mois, c'est le meilleur investissement que j'ai fait pour ma boîte."
-    </p>
-    <div class="testimonial-author">
-      <div class="author-avatar">JM</div>
-      <div>
-        <div class="author-name">Jean-Marc Tessier</div>
-        <div class="author-title">Plombier-chauffagiste, 12 ans d'expérience — Bordeaux</div>
-      </div>
-      <div class="author-rating">★★★★★</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing">
-  <p class="section-label">Tarif unique</p>
-  <h2 class="section-title" style="margin-bottom:0.5rem">Simple, transparent, sans surprise</h2>
-  <p class="section-sub" style="margin-bottom:2.5rem">Un seul forfait. Tout inclus. Résiliation en 1 clic.</p>
-
-  <div class="pricing-card">
-    <div class="price-amount"><sup>€</sup>49<small style="font-size:1.5rem">,00</small></div>
-    <div class="price-period">par mois · sans engagement</div>
-    <ul class="price-features">
-      <li>Assistant IA personnalisé pour votre secteur</li>
-      <li>Accès illimité via web & Telegram</li>
-      <li>Rédaction emails, devis, rapports</li>
-      <li>FAQ client configurée selon votre activité</li>
-      <li>Configuration initiale incluse (24h)</li>
-      <li>Support par email prioritaire</li>
-      <li>Résiliation immédiate, sans préavis</li>
-    </ul>
-    <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="pricing-cta" target="_blank">
-      🚀 Démarrer maintenant — 49€/mois
-    </a>
-    <p class="pricing-guarantee">
-      <strong>Garantie 7 jours satisfait ou remboursé.</strong><br />
-      Paiement sécurisé par Stripe · Données hébergées en France
-    </p>
   </div>
 </section>
 
@@ -584,70 +742,46 @@
 <section class="faq">
   <p class="section-label">Questions fréquentes</p>
   <h2 class="section-title" style="margin-bottom:2.5rem">Vous avez des questions ?</h2>
-
   <div class="faq-item">
-    <div class="faq-q">Mon assistant comprend-il mon métier ?</div>
-    <div class="faq-a">Oui. Lors de la configuration (dans les 24h suivant votre souscription), nous paramétrons votre assistant selon votre secteur d'activité, votre région, vos prestations typiques. Il répond comme s'il avait travaillé dans votre domaine.</div>
+    <div class="faq-q">L'assistant comprend mon métier de plombier / électricien ?</div>
+    <div class="faq-a">Oui. Lors de la configuration (dans les 24h), on paramètre l'assistant selon votre activité, vos prestations typiques, votre région et vos tarifs. Il répond comme s'il connaissait votre métier depuis des années.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">Dois-je être à l'aise avec la tech ?</div>
-    <div class="faq-a">Aucunement. L'interface est aussi simple qu'envoyer un SMS. Vous tapez votre demande, il répond. C'est tout. Pas d'installation, pas de formation requise.</div>
+    <div class="faq-q">Dois-je être à l'aise avec la technologie ?</div>
+    <div class="faq-a">Aucunement. C'est aussi simple qu'envoyer un SMS. Vous parlez ou tapez votre demande, il répond. Pas d'installation, pas de formation. Si vous pouvez utiliser votre téléphone, vous pouvez utiliser l'IA.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">Mes données sont-elles confidentielles ?</div>
-    <div class="faq-a">Absolument. Vos conversations sont privées, hébergées sur des serveurs sécurisés. Nous ne lisons pas vos échanges et ne revendons aucune donnée.</div>
+    <div class="faq-q">Quelle est la différence entre Starter et Pro ?</div>
+    <div class="faq-a">Le Starter, c'est l'assistant IA : il répond à vos emails, rédige vos devis et relance vos prospects. Le Pro va plus loin : on automatise vos processus — devis depuis appel vocal, réponse en 5 min, relances impayés automatiques, agenda en ligne, résumé hebdo. C'est la différence entre avoir un assistant et avoir une machine bien huilée.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q">Comment résilier ?</div>
     <div class="faq-a">En un clic depuis votre espace client Stripe. Aucun préavis, aucune pénalité. L'accès continue jusqu'à la fin de la période payée.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q">Y a-t-il une limite d'utilisation ?</div>
-    <div class="faq-a">Non. Vous pouvez envoyer autant de messages que vous voulez. L'assistant est là pour vous 24h/24, 7j/7.</div>
+    <div class="faq-q">Mes données clients sont-elles sécurisées ?</div>
+    <div class="faq-a">Absolument. Vos conversations sont privées et hébergées sur des serveurs sécurisés. Nous ne lisons pas vos échanges et ne revendons aucune donnée à personne.</div>
   </div>
 </section>
 
 <!-- CTA BANNER -->
 <section class="cta-banner">
-  <h2>Prêt à gagner 1h par jour sur votre admin ?</h2>
-  <p>Rejoignez les PME qui ont déjà leur assistant IA. Configuration en 24h, sans engagement.</p>
+  <h2>Prêt à ne plus jamais rater un prospect ?</h2>
+  <p>Démarrez aujourd'hui. Configuration en 24h. Résiliable à tout moment. 30 jours remboursés si vous n'êtes pas convaincu.</p>
   <a href="https://buy.stripe.com/dRm4gt5Ha3P0fZkcNtdIA02" class="btn-dark" target="_blank">
     ⚡ Démarrer maintenant — 49€/mois
   </a>
 </section>
 
-<!-- VOIR AUSSI -->
-<section style="background:#060e1a;border-top:1px solid rgba(255,255,255,0.06);padding:36px 24px;text-align:center;">
-  <div style="max-width:800px;margin:0 auto;">
-    <p style="color:#8892a4;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:18px;">🔗 Voir aussi nos autres services</p>
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
-      <a href="https://kasimax.github.io/data-shop/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:14px 22px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(201,162,39,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-        <span style="font-size:22px;">📊</span>
-        <div style="text-align:left;">
-          <div style="color:#fff;font-weight:700;font-size:14px;">Boutique Données B2B</div>
-          <div style="color:#8892a4;font-size:12px;">5 779 contacts géomètres & BTP</div>
-        </div>
-      </a>
-      <a href="https://kasimax.github.io/lead-factory/" target="_blank" style="display:flex;align-items:center;gap:10px;background:#112240;border:1px solid rgba(201,162,39,0.15);border-radius:10px;padding:14px 22px;text-decoration:none;" onmouseover="this.style.borderColor='rgba(201,162,39,0.5)'" onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-        <span style="font-size:22px;">🎯</span>
-        <div style="text-align:left;">
-          <div style="color:#fff;font-weight:700;font-size:14px;">Lead Factory</div>
-          <div style="color:#8892a4;font-size:12px;">Leads B2B qualifiés livrés en 24h</div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 IAPME.fr — Service propulsé par l'IA · <a href="mailto:contact@geo-mod.com">contact@geo-mod.com</a> · <a href="preuves.html" style="color:#c9a227">✨ Cas clients</a> · <a href="#">CGV</a> · <a href="#">Confidentialité</a></p>
+  <p>© 2026 IAPME.fr — Votre assistant IA pour artisans · <a href="mailto:contact@geo-mod.com">contact@geo-mod.com</a> · <a href="#">CGV</a> · <a href="#">Confidentialité</a></p>
 </footer>
 
-<!-- Countdown 72h -->
+<!-- Countdown -->
 <script>
   (function() {
-    var KEY = 'iapme_offerExpiry';
+    var KEY = 'iapme_offerExpiry_v2';
     var stored = localStorage.getItem(KEY);
     var expiry = stored ? parseInt(stored) : Date.now() + 72 * 60 * 60 * 1000;
     if (!stored) localStorage.setItem(KEY, expiry);
@@ -655,7 +789,7 @@
     if (!el) return;
     function tick() {
       var diff = expiry - Date.now();
-      if (diff <= 0) { el.textContent = 'Offre expirée'; return; }
+      if (diff <= 0) { el.textContent = '—'; return; }
       var h = Math.floor(diff / 3600000);
       var m = Math.floor((diff % 3600000) / 60000);
       var s = Math.floor((diff % 60000) / 1000);
